@@ -1,0 +1,12 @@
+{
+    "builders": [
+      {
+        "type": "googlecompute",
+        "project_id": "My First Project",
+        "source_image": "debian-9-stretch-v20200805",
+        "ssh_username": "packer",
+        "zone": "us-central1-a"
+      }
+    ]
+  }
+  
