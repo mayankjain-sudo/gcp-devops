@@ -10,7 +10,8 @@ steps:
            '-t', 'gcr.io/$PROJECT_ID/packer',
            '--build-arg', 'PACKER_VERSION=${_PACKER_VERSION}',
            '--build-arg', 'PACKER_VERSION_SHA256SUM=${_PACKER_VERSION_SHA256SUM}',
-           '.','packer --version']
+           '.',
+           '--version']
 substitutions:
   _PACKER_VERSION: 1.9.1
   _PACKER_VERSION_SHA256SUM: 793ed62255b9e572eda0c77d2a770f5fde501314b7598320786f1e51feb260d6
