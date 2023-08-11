@@ -2,5 +2,4 @@ steps:
 - name: 'gcr.io/$PROJECT_ID/packer'
   args:
   - build
-  - -var-file=variables.json
   - packer.json
