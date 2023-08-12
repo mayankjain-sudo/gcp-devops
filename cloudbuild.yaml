@@ -3,13 +3,15 @@
 
 # See docs at https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli
 steps:
-  - name: 'gcr.io/$PROJECT_ID/packer'
+  - id: "Check Version"
+    name: 'gcr.io/$PROJECT_ID/packer'
     args: ['--version','--output-file', '/workspace/step-output.txt']
 
-  - name: 'gcr.io/$PROJECT_ID/packer'
+  - id: "Read Output"
+    name: 'gcr.io/$PROJECT_ID/packer'
     entrypoint: 'bash'
     args:
-      - '-c'
+      - -c
       - | 
         cat /workspace/step-output.txt
 
