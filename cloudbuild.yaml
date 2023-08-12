@@ -13,7 +13,7 @@ steps:
   - name: 'gcr.io/$PROJECT_ID/packer'
     entrypoint: 'bash'
     args:
-      - 'c'
+      - '-c'
       - | 
         cat /persistent_volume/step-output.txt
     volumes:
