@@ -8,13 +8,12 @@ steps:
     volumes:
     - name: 'vol1'
       path: '/persistent_volume'
-    args: ['--version','--output-file', '/persistent_volume/step-output.txt']
+    args: ['--version','>', '/persistent_volume/step-output.json']
   
   - id: "Read Output"
     name: 'gcr.io/$PROJECT_ID/packer'
     volumes:
     - name: 'vol1'
       path: '/persistent_volume'
-    entrypoint: '/bin/bash'
-    args: ['ls', '/persistent_volume/step-output.txt']
+    args: ['build', '/persistent_volume/step-output.json']
 
