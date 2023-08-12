@@ -3,9 +3,9 @@
 
 # See docs at https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli
 steps:
-  - name: 'gcr.io/cloud-builders/wget'
+  - name: 'gcr.io/$PROJECT_ID/wget'
     args: ["https://releases.hashicorp.com/packer/${_PACKER_VERSION}/packer_${_PACKER_VERSION}_linux_amd64.zip"]
-  - name: 'gcr.io/cloud-builders/docker'
+  - name: 'gcr.io/$PROJECT_ID/docker'
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/packer:${_PACKER_VERSION}',
            '-t', 'gcr.io/$PROJECT_ID/packer',
            '--build-arg', 'PACKER_VERSION=${_PACKER_VERSION}',
@@ -14,6 +14,10 @@ steps:
 substitutions:
   _PACKER_VERSION: 1.9.1
   _PACKER_VERSION_SHA256SUM: 793ed62255b9e572eda0c77d2a770f5fde501314b7598320786f1e51feb260d6
+
+  - name: 'gcr.io/$PROJECT_ID/packer'
+    args: ['--version']
+
 
 images:
   - 'gcr.io/$PROJECT_ID/packer:latest'
