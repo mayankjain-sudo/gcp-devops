@@ -4,19 +4,12 @@
 # See docs at https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli
 steps:
   - name: 'gcr.io/$PROJECT_ID/packer'
-    args: ['--version','--output-file', '/persistent_volume/step-output.txt']
-
-    volumes:
-    - name: 'myvolume'
-      path: '/persistent_volume'
+    args: ['--version','--output-file', '/workspace/step-output.txt']
 
   - name: 'gcr.io/$PROJECT_ID/packer'
     entrypoint: 'bash'
     args:
       - '-c'
       - | 
-        cat /persistent_volume/step-output.txt
-    volumes:
-    - name: 'myvolume'
-      path: '/persistent_volume'
+        cat /workspace/step-output.txt
 
