@@ -5,10 +5,18 @@
 steps:
   - name: 'gcr.io/$PROJECT_ID/packer'
     args:
-      - --version
+      - --version > /persistent_volume/packerversion.txt
+    volumes:
+    - name: 'myvolume'
+      path: '/persistent_volume'
 
-artifacts:
-  objects:
-    location: 'gs://image_build_artifacts/'
-    paths: ['cloudbuild.yaml','packimage_cloudbuild.yaml','packer.json']
+  - name: 'gcr.io/$PROJECT_ID/packer'
+    entrypoint: 'bash'
+    args:
+      - 'c'
+      - | 
+        cat /persistent_volume/packerversion.txt
+    volumes:
+    - name: 'myvolume'
+      path: '/persistent_volume'
 
