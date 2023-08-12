@@ -20,5 +20,5 @@ steps:
       - -c
       - |
         source /workspace/build_vars &&
-        echo "My name is $build_firstname $build_lastname.
+        echo "My name is $build_firstname $build_lastname."
 
