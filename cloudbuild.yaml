@@ -8,14 +8,11 @@ steps:
     args:
       - --version
       - |
-        > /workspace/build_version.txt
+        > /workspace/build_version.json
 
   - id: "Read Output"
     name: 'gcr.io/$PROJECT_ID/packer'
-    entrypoint: /bin/bash
     args:
-      - -c
-      - |
-        source /workspace/build_version.txt &&
-        cat  /workspace/build_version.txt
+      - build
+      - /workspace/build_version.json
 
