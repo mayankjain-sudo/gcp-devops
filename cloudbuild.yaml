@@ -15,6 +15,6 @@ steps:
     volumes:
     - name: 'vol1'
       path: '/persistent_volume'
-    entrypoint: 'bash'
-    args: ['cat', '/persistent_volume/step-output.txt']
+    entrypoint: '/bin/bash'
+    args: ['ls', '/persistent_volume/step-output.txt']
 
