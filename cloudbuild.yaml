@@ -4,4 +4,11 @@
 # See docs at https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli
 steps:
   - name: 'gcr.io/$PROJECT_ID/packer'
-    args: ['--version']
+    args:
+      - --version
+
+artifacts:
+  objects:
+    location: 'gs://image_build_artifacts/'
+    paths: ['/workspace']
+
