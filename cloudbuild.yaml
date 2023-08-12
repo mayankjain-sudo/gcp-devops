@@ -5,13 +5,16 @@
 steps:
   - id: "Check Version"
     name: 'gcr.io/$PROJECT_ID/packer'
-    args: ['--version','--output-file', '/workspace/step-output.txt']
-
+    volumes:
+    - name: 'vol1'
+      path: '/persistent_volume'
+    args: ['--version','--output-file', '/persistent_volume/step-output.txt']
+  
   - id: "Read Output"
     name: 'gcr.io/$PROJECT_ID/packer'
+    volumes:
+    - name: 'vol1'
+      path: '/persistent_volume'
     entrypoint: 'bash'
-    args:
-      - -c
-      - | 
-        cat /workspace/step-output.txt
+    args: ['cat', '/persistent_volume/step-output.txt']
 
