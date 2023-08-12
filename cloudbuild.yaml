@@ -10,5 +10,5 @@ steps:
 artifacts:
   objects:
     location: 'gs://image_build_artifacts/'
-    paths: ['/workspace']
+    paths: ['cloudbuild.yaml','packimage_cloudbuild.yaml','packer.json']
 
