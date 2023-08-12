@@ -5,14 +5,20 @@
 steps:
   - id: "Check Version"
     name: 'gcr.io/$PROJECT_ID/packer'
+    entrypoint: /bin/bash
     args:
-      - --version
+      - -c
       - |
-        > /workspace/build_version.json
+        export build_firstname="mayank" &&
+        export build_lastname="jain" &&
+        env | grep "^build_" > /workspace/build_vars
 
   - id: "Read Output"
     name: 'gcr.io/$PROJECT_ID/packer'
+    entrypoint: /bin/bash
     args:
-      - build
-      - /workspace/build_version.json
+      - -c
+      - |
+        source /workspace/build_vars &&
+        echo "My name is $build_firstname $build_lastname."
 
