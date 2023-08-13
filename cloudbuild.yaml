@@ -6,7 +6,7 @@ steps:
   - id: "Create Image"
     name: 'gcr.io/$PROJECT_ID/packer'
     args:
-      - build
+      - validate
       - packer.json
 
   # - id: "Read Output"
