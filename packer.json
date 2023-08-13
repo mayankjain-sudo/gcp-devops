@@ -1,24 +1,19 @@
 {
   "variables": {
-    "project": "$PROJECT_ID",
-    "family" : "cis-ubuntu-2004-image",
-    "region": "us-central1",
-    "timestamp" : "{{timestamp}}",
-    "zone": "us-central1-a"
+    "project_id": "",
+    "builder_sa" : "",
+    "zone": ""
   },
   "builders": [
     {
       "type": "googlecompute",
-      "project_id": "{{user `project`}}",
-      "source_image": "ubuntu-2004-focal-v20211118",
+      "project_id": "{{user `project_id`}}",
+      "source_image": "ubuntu-2204-lts",
       "ssh_username": "packer",
       "zone": "{{user `zone`}}",
       "image_description": "custom GCE machine Ubunutu 20.04 image",
       "image_family": "cis-ubuntu-2004-image",
-      "enable_secure_boot": true,
-      "omit_external_ip": true,
-      "use_internal_ip": true,
-      "use_iap": true,
+      "impersonate_service_account": "{{user `builder_sa`}}",
       "image_name": "ubuntu-2004-image-{{user `timestamp`}}"
       
     }
