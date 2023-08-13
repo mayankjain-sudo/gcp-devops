@@ -8,13 +8,13 @@
     {
       "type": "googlecompute",
       "project_id": "{{user `project_id`}}",
-      "source_image": "ubuntu-2204-lts",
+      "source_image": "ubuntu-2004-focal-v20211118",
       "ssh_username": "packer",
       "zone": "{{user `zone`}}",
       "image_description": "custom GCE machine Ubunutu 20.04 image",
       "image_family": "cis-ubuntu-2004-image",
       "impersonate_service_account": "{{user `builder_sa`}}",
-      "image_name": "ubuntu-image-test"
+      "image_name": "cis-ubuntu-image-test"
       
     }
   ], 
