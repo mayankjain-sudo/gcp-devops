@@ -1,6 +1,6 @@
 {
   "variables": {
-    "project": "My First Project",
+    "project": "$PROJECT_ID",
     "family" : "cis-ubuntu-2004-image",
     "region": "us-central1",
     "timestamp" : "{{timestamp}}",
@@ -9,6 +9,7 @@
   "builders": [
     {
       "type": "googlecompute",
+      "project_id": "{{user `project`}}",
       "source_image": "ubuntu-2004-focal-v20211118",
       "ssh_username": "packer",
       "zone": "{{user `zone`}}",
