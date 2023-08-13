@@ -3,16 +3,18 @@
 
 # See docs at https://developer.hashicorp.com/packer/tutorials/docker-get-started/get-started-install-cli
 steps:
-  - id: "Check Version"
-    name: 'gcr.io/$PROJECT_ID/packer'
-    args:
-      - --version
-      - |
-        > /workspace/build_version.json
-
-  - id: "Read Output"
+  - id: "Create Image"
     name: 'gcr.io/$PROJECT_ID/packer'
     args:
       - build
-      - /workspace/build_version.json
+      - packer.json
+
+  # - id: "Read Output"
+  #   name: 'gcr.io/$PROJECT_ID/packer'
+  #   entrypoint: /bin/bash
+  #   args:
+  #     - -c
+  #     - |
+  #       source /workspace/build_vars &&
+  #       echo "My name is $build_firstname $build_lastname."
 

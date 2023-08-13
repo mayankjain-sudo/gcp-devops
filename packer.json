@@ -1,12 +1,34 @@
 {
-    "builders": [
-      {
-        "type": "googlecompute",
-        "project_id": "$PROJECT_ID",
-        "source_image": "debian-9-stretch-v20200805",
-        "ssh_username": "packer",
-        "zone": "us-central1-a"
-      }
-    ]
-  }
-  
+  "variables": {
+    "project": "My First Project",
+    "family" : "cis-ubuntu-2004-image",
+    "region": "us-central1",
+    "timestamp" : "{{timestamp}}",
+    "zone": "us-central1-a"
+  },
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "{{user `project`}}",
+      "source_image": "ubuntu-2004-focal-v20211118",
+      "ssh_username": "packer",
+      "zone": "{{user `zone`}}",
+      "image_description": "custom GCE machine Ubunutu 20.04 image",
+      "image_family": "cis-ubuntu-2004-image",
+      "enable_secure_boot": true,
+      "omit_external_ip": true,
+      "use_internal_ip": true,
+      "use_iap": true,
+      "image_name": "ubuntu-2004-image-{{user `timestamp`}}"
+      
+    }
+  ], 
+  "provisioners":[
+    
+    {
+      "type": "shell-local",
+      "inline": ["echo Hello From packer image test"]
+    }
+  ]
+
+}
