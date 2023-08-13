@@ -14,7 +14,7 @@
       "image_description": "custom GCE machine Ubunutu 20.04 image",
       "image_family": "cis-ubuntu-2004-image",
       "impersonate_service_account": "{{user `builder_sa`}}",
-      "image_name": "ubuntu-2004-image-{{user `timestamp`}}"
+      "image_name": "ubuntu-image-test"
       
     }
   ], 
