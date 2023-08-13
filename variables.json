@@ -1,5 +1,5 @@
 {
-    "project_id": "my-project",
+    "project_id": "My First Project",
     "zone": "us-central1-a",
     "builder_sa": "packer@genuine-cirrus-395610.iam.gserviceaccount.com"
 }
