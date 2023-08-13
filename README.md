@@ -3,7 +3,7 @@
 Learning GCP DevOps.
 
 To build the custom image in GCP using packer follow the below steps before writing the packer code.
-Below steps create an example Packer service account using gcloud. Cloud Build will impersonate Packer's service account to run Packer acting as a given service account.
+#Below steps create an example Packer service account using gcloud. Cloud Build will impersonate Packer's service account to run Packer acting as a given service account.
 	1. Set GCP project variables. Substitute my-project with your project identifier.
         exportPROJECT_ID=my-project
         exportPROJECT_NUMBER=`gcloud projects list --filter="$PROJECT_ID"--format="value(PROJECT_NUMBER)"`
