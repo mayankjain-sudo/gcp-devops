@@ -18,6 +18,7 @@ pipeline {
                 // '''
 
                 script {
+                    sh 'whoami'
                     G_CLOUD_VER = sh(script:"gcloud --version > /dev/null", returnStatus:true)
                     if ( $G_CLOUD_VER == 0 ) {
                         sh "echo 'gcloud is already install'"
