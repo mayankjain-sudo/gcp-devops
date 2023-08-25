@@ -20,11 +20,12 @@ pipeline {
                 '''
             }
         }
-        stage('Check version')
+        stage('Check version') {
             steps {
                 sh '''
                     gcloud --version
                 '''
             }
+        }
     }
 }
