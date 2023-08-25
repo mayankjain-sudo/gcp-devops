@@ -10,10 +10,10 @@ pipeline {
         }
         stage('Build') {
             steps {
-                withCredentials([file(credentialsId: 'gcpLearning', variable: 'GC_KEY')]) {
+                withCredentials([[$class: 'StringBinding', credentialsId: "gcpLearning", variable: 'GCS_KEY']]) {
                 // Checking gcloud 
                     sh '''
-                        gcloud auth activate-service-account --key-file=${GC_KEY}
+                        gcloud auth activate-service-account --key-file=${GCS_KEY}
                         #curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-444.0.0-linux-x86_64.tar.gz
                         #tar -xf google-cloud-cli-444.0.0-linux-x86_64.tar.gz
                         #./google-cloud-sdk/install.sh -q
