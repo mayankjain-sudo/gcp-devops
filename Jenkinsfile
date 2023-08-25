@@ -11,14 +11,11 @@ pipeline {
         stage('Gcloud Install') {
             steps {
                 // Checking gcloud 
-                script(
-                    """
+                sh '''
                     curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-444.0.0-linux-x86_64.tar.gz
                     tar -xf google-cloud-cli-444.0.0-linux-x86.tar.gz
                     ./google-cloud-sdk/install.sh
-
-                    """                    
-                )
+                '''
             }
         }
     }
