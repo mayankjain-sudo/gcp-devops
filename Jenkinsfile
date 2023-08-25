@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                withCredentials([[$class: 'StringBinding', credentialsId: "gcpLearning", variable: 'GCS_KEY']]) {
+                withCredentials([[$class: 'FileBinding', credentialsId: "gcpLearning", variable: 'GCS_KEY']]) {
                 // Checking gcloud 
                     sh '''
                         gcloud auth activate-service-account --key-file=${GCS_KEY}
