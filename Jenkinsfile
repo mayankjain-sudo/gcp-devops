@@ -7,8 +7,9 @@ pipeline {
                 cleanWs()
                 checkout scm
             }
-        stage('Gcloud Install'){
-            step {
+        }
+        stage('Gcloud Install') {
+            steps {
                 // Checking gcloud 
                 script(
                     """
@@ -19,7 +20,6 @@ pipeline {
                     """                    
                 )
             }
-        }
         }
     }
 }
