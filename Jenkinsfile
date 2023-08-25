@@ -9,9 +9,6 @@ pipeline {
             }
         }
         stage('Gcloud Install') {
-            environment {
-                G_CLOUD_VER = sh(script:"gcloud --version > /dev/null", returnStatus:true)
-            }
             steps {
                 // Checking gcloud 
                 // sh '''
@@ -21,6 +18,7 @@ pipeline {
                 // '''
 
                 script {
+                    G_CLOUD_VER = sh(script:"gcloud --version > /dev/null", returnStatus:true)
                     if ( $G_CLOUD_VER == 0 ) {
                         sh "echo 'gcloud is already install'"
                     }  else {
