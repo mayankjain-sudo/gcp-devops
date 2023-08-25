@@ -18,8 +18,8 @@ pipeline {
                 // '''
 
                 script {
-                    
-                    if (sh "gcloud --version > /dev/null" == 0) {
+                    gcloudver=`gcloud --version > /dev/null`
+                    if ( gcloudver == 0 ) {
                         sh "echo 'gcloud is already install'"
                     }  else {
                         sh "echo 'Hello from ${env.BRANCH_NAME} branch!'"
