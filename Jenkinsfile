@@ -16,9 +16,15 @@ pipeline {
                     tar -xf google-cloud-cli-444.0.0-linux-x86_64.tar.gz
                     ./google-cloud-sdk/install.sh -q
                     source ./google-cloud-sdk/path.bash.inc
-                    gcloud --version
+                    
                 '''
             }
         }
+        stage('Check version')
+            steps {
+                sh '''
+                    gcloud --version
+                '''
+            }
     }
 }
